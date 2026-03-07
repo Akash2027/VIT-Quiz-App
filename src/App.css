@@ -1,0 +1,122 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --royal-blue-dark: #002366;
+  --royal-blue-light: #004a99;
+  --dynamic-gradient: linear-gradient(135deg, #001a4d 0%, #002366 50%, #0056b3 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the body takes full laptop screen height */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #f0f2f5;
+}
+
+/* THE PERFECT CENTERING WRAPPER */
+.auth-page-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  background: var(--dynamic-gradient);
+}
+
+/* ENHANCED LARGE CARD */
+.auth-card {
+  background: white;
+  padding: 60px;          /* Increased padding */
+  border-radius: 40px;    /* Softer round edges */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 550px;       /* Increased width */
+  text-align: center;
+}
+
+.auth-card h2 {
+  color: var(--royal-blue-dark);
+  font-size: 2.2rem;      /* Larger title */
+  margin-bottom: 10px;
+}
+
+.auth-card p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+input {
+  width: 100%;
+  padding: 18px;          /* Thicker inputs */
+  margin: 12px 0;
+  border: 2px solid #eee;
+  border-radius: 15px;
+  outline: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--royal-blue-light);
+  box-shadow: 0 0 10px rgba(0, 74, 153, 0.1);
+}
+
+.btn-royal {
+  width: 100%;
+  padding: 18px;
+  background: var(--royal-blue-dark);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn-royal:hover {
+  background: var(--royal-blue-light);
+  transform: translateY(-2px);
+}
+
+/* DASHBOARD SIDEBAR */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar {
+  width: 350px;
+  background: var(--royal-blue-dark);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.avatar-circle {
+  width: 110px;
+  height: 110px;
+  background: white;
+  color: var(--royal-blue-dark);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 600;
+  border: 5px solid var(--royal-blue-light);
+}
