@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getQuestionsBySubject, getRandomMockExam, getQuestionSet } from '../utils/quizLogic';
+import { auth, db } from '../firebase'; // Added Firebase imports
+import { collection, addDoc } from 'firebase/firestore'; // Added Firestore imports
 
 export default function Quiz() {
   const location = useLocation();
@@ -43,13 +45,14 @@ export default function Quiz() {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
   };
 
-  const calculateFinalScore = () => {
+  const calculateFinalScore = async () => { // Made async for Firebase
     let finalScore = 0;
     questions.forEach((q, index) => {
       if (userAnswers[index] === q.answer) finalScore++;
     });
 
     const resultEntry = {
+      userId: auth.currentUser?.uid || "anonymous", // Added for Real-world tracking
       id: Date.now(),
       subject: subject || (mode === 'set' ? `Set ${setNum}` : "Full Mock"),
       score: finalScore,
@@ -59,7 +62,15 @@ export default function Quiz() {
       timestamp: new Date().getTime()
     };
 
-    // SAVE TO HISTORY
+    // --- REAL WORLD CLOUD SAVE START ---
+    try {
+      await addDoc(collection(db, "quizHistory"), resultEntry);
+    } catch (error) {
+      console.error("Cloud Save Failed:", error);
+    }
+    // --- REAL WORLD CLOUD SAVE END ---
+
+    // SAVE TO HISTORY (Local remains for instant UI update)
     const existingHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
     localStorage.setItem('quizHistory', JSON.stringify([resultEntry, ...existingHistory]));
 
