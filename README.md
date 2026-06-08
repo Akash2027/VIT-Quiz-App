@@ -1,8 +1,3 @@
-Here is a complete, production-ready `README.md` file designed for your project. It includes your exact repository link, tech stack, features, deployment steps, and your LinkedIn profile for queries.
-
-### `README.md`
-
-```markdown
 # Comprehensive Quiz Portal
 
 An elegant, high-performance, full-stack quiz web application explicitly designed for **M.Tech Integrated Software Engineering** students to prepare for their comprehensive exams. The platform tracks student progress across 1,165+ technical questions sourced directly from official VTOP course materials.
