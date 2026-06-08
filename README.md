@@ -148,5 +148,3 @@ GitHub: https://github.com/Akash2027
 LinkedIn: www.linkedin.com/in/akash-k-bb9a20274
 
 ```
-
-```
